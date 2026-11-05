@@ -19,12 +19,19 @@ ul {
 }
 
 li {
-  list-style: none;
+  list-style-type: none;
 }
+
+.row {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 
 /* TERMINAL */
 
-.terminal-container {
+.terminal__container {
   font-size: 1.5rem;
   color: #BD00FF; 
   text-shadow: 0 0 10px #BD00FF, 0 0 20px #9D4EDD; /* Gives it a neon glow effect */
@@ -48,11 +55,60 @@ nav {
   padding-top: 26px;
 }
 
-.nav-bar {
+.nav__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+}
+
+.nav__container {
+  width: 100%;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  padding-bottom: 64px;
+  margin-left: auto;
+}
+
+.nav__link {
+  margin: 0 24px;
+  padding-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  text-decoration: none;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: 300ms;
+  color: #00F0FF;
+  text-shadow: 0 0 10px #00F0FF, 0 0 20px #4bc5ce;
+}
+
+.nav__link--active {
+  color: #eeff00;
+  text-shadow: 0 0 10px #eeff00, 0 0 20px #e1eb5f;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: #00F0FF;
+  box-shadow: 0 0 8px #00F0FF, 0 0 16px #4bc5ce;
+  transition: all 300ms ease;
+  opacity: 0;
+}
+
+.nav__link--active::after {
+  background: #eeff00;
+  box-shadow: 0 0 8px #eeff00, 0 0 16px #e1eb5f;
+}
+
+.nav__link:hover::after {
+  opacity: 1;
 }

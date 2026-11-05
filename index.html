@@ -12,16 +12,32 @@
     ></script>
   </head>
   <body>
-    <nav class="nav-bar">
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="terminal-container">
-      <span id="terminal-text"></span><span class="cursor">_</span>
-    </div>
+    <section id="landing">
+      <nav>
+        <div class="nav__container">
+          <div class="row nav__row">
+            <div class="nav__links">
+              <ul>
+                <li>
+                  <a href="#home" class="nav__link nav__link--active">Home</a>
+                </li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#projects" class="nav__link">Projects</a></li>
+                <li>
+                  <a href="#contact" class="nav__link nav__link--primary"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <div class="terminal__container">
+          <span id="terminal-text"></span><span class="cursor">_</span>
+        </div>
+      </header>
+    </section>
   </body>
 </html>
