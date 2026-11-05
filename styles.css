@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Michroma', sans-serif;
+}
+
 ul {
   list-style-type: none; 
   padding-left: 0; 
-  
 }
 
 body {
@@ -26,4 +34,11 @@ body {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+.nav-bar {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: space-between;
 }

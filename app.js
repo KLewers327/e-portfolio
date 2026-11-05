@@ -1,25 +1,18 @@
-const textToType = "> Establishing connection... Welcome, I'm Kaylyn.";
-
-//I'm a Frontend Software engineer and a Web Developer. I am passionate about creating visually appealing and user-friendly web applications. I have experience in HTML, CSS, and JavaScript. I enjoy learning new technologies and improving my skills. Let's connect and collaborate on exciting projects!
+const textToType = "> Establishing connection... Welcome, I'm Kaylyn, and I'm a Frontend software engineer.";
 
 const terminalElement = document.getElementById("terminal-text");
 
 let i = 0;
 
-function typeWriter() {
+const typeWriter = () => {
   if (i < textToType.length) {
-    terminalElement.textContent += textToType.charAt(i);
-
-    i++;  
-
-    const pausePhrase = "> Establishing connection...";
-
-    if (terminalElement.textContent === pausePhrase) {
-      setTimeout(typeWriter, 1500); 
-    } else {
-      setTimeout(typeWriter, 50); // Adjust the typing speed here (in milliseconds)
-    }
+    terminalElement.textContent += textToType[i++];
+    
+    const isPause = terminalElement.textContent.endsWith("> Establishing connection...");
+    setTimeout(typeWriter, isPause ? 1500 : 50);
   }
-}
+  
+};
+
 
 window.onload = typeWriter;
