@@ -8,7 +8,9 @@ const typeWriter = () => {
   if (i < textToType.length) {
     terminalElement.textContent += textToType[i++];
     
-    const isPause = terminalElement.textContent.endsWith("> Establishing connection...");
+    const isPause =
+      terminalElement.textContent === ">" ||
+      terminalElement.textContent.endsWith("> Establishing connection...");
     setTimeout(typeWriter, isPause ? 1500 : 50);
   }
   
