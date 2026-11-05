@@ -1,0 +1,23 @@
+body {
+  background-color: #0A0915;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace; 
+  padding: 40px;
+}
+
+.terminal-container {
+  font-size: 1.5rem;
+  color: #BD00FF; 
+  text-shadow: 0 0 10px #BD00FF, 0 0 20px #9D4EDD; /* Gives it a neon glow effect */
+}
+
+/* Blinking terminal cursor animation */
+.cursor {
+  color: #00F0FF; /* Contrast cyan for the cursor */
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
