@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Michroma', sans-serif;
+  font-family: 'Michroma', 'Courier New', courier, monospace;
   letter-spacing: 0.05em; 
 }
 
@@ -124,12 +124,15 @@ nav {
   justify-content: space-between;
   gap: 40px;
   min-height: calc(100vh - 80px);
-  padding: 0 10%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
 .terminal__window {
-  flex: 3; 
+  flex: 1 1 800px;
+  max-width: 800px;
   background-color: #0F0E26; /* Deep midnight variant */
   border: 1px solid #3C096C; /* Muted purple border */
   border-radius: 8px;
@@ -164,7 +167,13 @@ nav {
 
 .terminal__body {
   padding: 25px;
-  min-height: 200px; /* Keeps layout stable while text types out */
+  min-height: 260px; /* Keeps layout stable while text types out */
+}
+
+.terminal-text {
+  display: inline-block;
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
 }
 
 .visual__frame {
@@ -195,6 +204,7 @@ nav {
 }
 
 /* PROJECTS */
+
 .projects {
   padding: 60px 10%;
   background-color: #0A0915;

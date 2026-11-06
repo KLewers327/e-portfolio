@@ -1,6 +1,6 @@
 const connectionText = "> Establishing connection...";
 const welcomeText = " Welcome, I'm Kaylyn.";
-const aboutText = "I'm a Frontend Software Engineer with a passion for creating visually stunning and user-friendly web applications. I specialize in crafting responsive designs, optimizing performance, and implementing modern web technologies to deliver seamless user experiences.";
+const aboutText = "I'm a Frontend Software Engineer with a passion for creating visually stunning and user-friendly web applications.";
 
 const terminalElement = document.getElementById("terminal-text");
 
