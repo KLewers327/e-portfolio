@@ -28,26 +28,6 @@ li {
   margin: 0 auto;
 }
 
-
-/* TERMINAL */
-
-.terminal__container {
-  font-size: 1.5rem;
-  color: #BD00FF; 
-  text-shadow: 0 0 10px #BD00FF, 0 0 20px #9D4EDD; /* Gives it a neon glow effect */
-}
-
-/* Blinking terminal cursor animation */
-.cursor {
-  color: #00F0FF; /* Contrast cyan for the cursor */
-  animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 /* NAV BAR */
 
 nav {
@@ -110,5 +90,31 @@ nav {
 }
 
 .nav__link:hover::after {
+  left: 0;
+  width: 100%;
   opacity: 1;
+}
+
+/* TERMINAL / LANDING */
+
+.terminal__container {
+  width: 100%;
+  max-width: 1280px;
+  font-size: 40px;
+  font-weight: 300;
+  white-space: pre-line;
+  color: #BD00FF; 
+  text-shadow: 0 0 10px #BD00FF, 0 0 20px #9D4EDD; /* Gives it a neon glow effect */
+  margin: 0 auto;
+}
+
+/* Blinking terminal cursor animation */
+.cursor {
+  color: #00F0FF; /* Contrast cyan for the cursor */
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
