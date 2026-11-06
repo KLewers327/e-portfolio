@@ -98,14 +98,11 @@ nav {
 /* TERMINAL / LANDING */
 
 .terminal__container {
-  width: 100%;
-  max-width: 1280px;
-  font-size: 40px;
-  font-weight: 300;
-  white-space: pre-line;
-  color: #BD00FF; 
-  text-shadow: 0 0 10px #BD00FF, 0 0 20px #9D4EDD; /* Gives it a neon glow effect */
-  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #BD00FF; /* Cyber neon purple */
+  text-shadow: 0 0 10px #BD00FF;
 }
 
 /* Blinking terminal cursor animation */
@@ -117,4 +114,76 @@ nav {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Hero Container */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: calc(100vh - 400px);
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+
+/* Terminal Styling (60% Width) */
+.terminal-window {
+  flex: 3; 
+  background-color: #0F0E26; /* Deep midnight variant */
+  border: 1px solid #3C096C; /* Muted purple border */
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(189, 0, 255, 0.15); /* Purple ambient glow */
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: #1A183A;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #3C096C;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-title {
+  color: #00F0FF; /* Cyber cyan text */
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  padding: 25px;
+  min-height: 200px; /* Keeps layout stable while text types out */
+}
+
+/* Visual Frame Styling (40% Width) */
+.visual-frame {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-placeholder {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #BD00FF; /* Neon Purple frame */
+  box-shadow: 0 0 15px #BD00FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00F0FF;
+  font-family: monospace;
+  font-weight: bold;
+  position: relative;
 }
