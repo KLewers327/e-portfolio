@@ -103,6 +103,7 @@ nav {
   line-height: 1.6;
   color: #BD00FF; /* Cyber neon purple */
   text-shadow: 0 0 10px #BD00FF;
+  white-space: pre-line;
 }
 
 
@@ -122,7 +123,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  min-height: calc(100vh - 400px);
+  min-height: calc(100vh - 80px);
   padding: 0 10%;
   box-sizing: border-box;
 }
@@ -191,4 +192,66 @@ nav {
   /* Subtle technological scanline pattern */
   background-image: linear-gradient(rgba(189, 0, 255, 0.05) 50%, transparent 50%);
   background-size: 100% 4px;
+}
+
+/* PROJECTS */
+.projects {
+  padding: 60px 10%;
+  background-color: #0A0915;
+}
+
+.projects__heading {
+  color: #00F0FF; /* Cyber Cyan */
+  font-family: monospace;
+  margin-bottom: 30px;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.projects__card {
+  background-color: #0F0E26;
+  border: 1px solid #3C096C; /* Muted Purple */
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.projects__card:hover {
+  transform: translateY(-5px);
+  border-color: #BD00FF; /* Glowing Purple on hover */
+  box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
+}
+
+.projects__card-title {
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.projects__card-desc {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.projects__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.projects__tag {
+  background: rgba(0, 240, 255, 0.1);
+  color: #00F0FF;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-family: monospace;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
 }
