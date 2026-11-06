@@ -127,7 +127,7 @@ nav {
   box-sizing: border-box;
 }
 
-.terminal-window {
+.terminal__window {
   flex: 3; 
   background-color: #0F0E26; /* Deep midnight variant */
   border: 1px solid #3C096C; /* Muted purple border */
@@ -136,7 +136,7 @@ nav {
   overflow: hidden;
 }
 
-.terminal-header {
+.terminal__header {
   background-color: #1A183A;
   padding: 10px 15px;
   display: flex;
@@ -154,25 +154,25 @@ nav {
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
-.terminal-title {
+.terminal__title {
   color: #00F0FF; /* Cyber cyan text */
   font-family: monospace;
   font-size: 0.85rem;
   margin-left: 10px;
 }
 
-.terminal-body {
+.terminal__body {
   padding: 25px;
   min-height: 200px; /* Keeps layout stable while text types out */
 }
 
-.visual-frame {
+.visual__frame {
   flex: 2;
   display: flex;
   justify-content: center;
 }
 
-.avatar-placeholder {
+.avatar__placeholder {
   width: 260px;
   height: 260px;
   background: rgba(15, 14, 38, 0.6); /* Translucent dark core */
