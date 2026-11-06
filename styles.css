@@ -95,6 +95,86 @@ nav {
   opacity: 1;
 }
 
+/* MODAL */
+
+/* Modal Overlay Mask */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 9, 21, 0.85); /* Dark translucent veil */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.modal--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Cyberpunk Window Container */
+.modal__window {
+  width: 90%;
+  max-width: 500px;
+  background-color: #0F0E26;
+  border: 2px solid #BD00FF; /* Glowing Purple Border */
+  box-shadow: 0 0 25px rgba(189, 0, 255, 0.45);
+  font-family: monospace;
+  
+  /* Cuts top-left and bottom-right edges like hero asset */
+  clip-path: polygon(8% 0%, 100% 0%, 100% 92%, 92% 100%, 0% 100%, 0% 8%);
+}
+
+.modal__header {
+  background-color: #1A183A;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3C096C;
+}
+
+.modal__title {
+  color: #00F0FF; /* Cyber Cyan */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.modal__close-btn {
+  background: none;
+  border: none;
+  color: #FF007F; /* Neon Hot Pink close vector */
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal__close-btn:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 8px #FF007F;
+}
+
+.modal__body {
+  padding: 30px;
+}
+
+.modal__text {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
 /* TERMINAL / LANDING */
 
 .terminal__container {

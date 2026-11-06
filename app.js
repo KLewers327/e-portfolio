@@ -83,7 +83,47 @@ const displayProjects = () => {
   });
 };
 
-window.onload = () => {
-  typeConnection();   
-  displayProjects();
+const modalData = {
+  about: {
+    title: "> ACCESSING_BIOMETRICS...",
+    text: "Hello, I am Kaylyn. I am a passionate Frontend Software Engineer dedicated to architecting highly visible, accessible, and clean digital experiences. Skilled in HTML, CSS, and modern shorthand JavaScript architectures."
+  },
+  contact: {
+    title: "> ESTABLISHING_COMMS...",
+    text: "Connection parameters active. Drop me a line or track my source repositories to collaborate on upcoming engineering builds. Terminal Node: active."
+  }
 };
+
+const toggleModal = (view) => {
+  const modal = document.getElementById("info-modal");
+  if (!modal) return;
+
+  if (view) {
+    document.getElementById("modal-title").textContent = modalData[view].title;
+    document.getElementById("modal-content").textContent = modalData[view].text;
+    modal.classList.add("modal--visible");
+  } else {
+    modal.classList.remove("modal--visible");
+  }
+};
+
+const setupNavListeners = () => {
+  // Update these selectors if your nav items use unique classes
+  const aboutBtn = document.querySelector('a[href="#about"]');
+  const contactBtn = document.querySelector('a[href="#contact"]');
+  const closeBtn = document.getElementById("modal-close");
+
+  if (aboutBtn) aboutBtn.onclick = (e) => { e.preventDefault(); toggleModal('about'); };
+  if (contactBtn) contactBtn.onclick = (e) => { e.preventDefault(); toggleModal('contact'); };
+  if (closeBtn) closeBtn.onclick = () => toggleModal();
+  
+  // Close window automatically if clicking outside the main tactical content block
+  window.onclick = (e) => { if (e.target.id === "info-modal") toggleModal(); };
+};
+
+window.onload = () => {
+  typeConnection();
+  displayProjects();
+  setupNavListeners();
+};
+
