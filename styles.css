@@ -105,7 +105,7 @@ nav {
   text-shadow: 0 0 10px #BD00FF;
 }
 
-/* Blinking terminal cursor animation */
+
 .cursor {
   color: #00F0FF; /* Contrast cyan for the cursor */
   animation: blink 0.8s infinite;
@@ -127,7 +127,6 @@ nav {
   box-sizing: border-box;
 }
 
-/* Terminal Styling (60% Width) */
 .terminal-window {
   flex: 3; 
   background-color: #0F0E26; /* Deep midnight variant */
@@ -167,7 +166,6 @@ nav {
   min-height: 200px; /* Keeps layout stable while text types out */
 }
 
-/* Visual Frame Styling (40% Width) */
 .visual-frame {
   flex: 2;
   display: flex;
@@ -175,15 +173,22 @@ nav {
 }
 
 .avatar-placeholder {
-  width: 250px;
-  height: 250px;
-  border: 2px solid #BD00FF; /* Neon Purple frame */
-  box-shadow: 0 0 15px #BD00FF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 260px;
+  height: 260px;
+  background: rgba(15, 14, 38, 0.6); /* Translucent dark core */
   color: #00F0FF;
   font-family: monospace;
   font-weight: bold;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #BD00FF;
+  box-shadow: 0 0 20px rgba(189, 0, 255, 0.4);
+  
+  /* Geometric Corner Cuts (Top-Left and Bottom-Right cut out) */
+  clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  
+  /* Subtle technological scanline pattern */
+  background-image: linear-gradient(rgba(189, 0, 255, 0.05) 50%, transparent 50%);
+  background-size: 100% 4px;
 }
