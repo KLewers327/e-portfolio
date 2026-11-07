@@ -55,8 +55,8 @@
                 <span id="welcome-name" class="terminal__highlight"></span>
                 <span id="about-intro"></span>
                 <span id="about-role" class="terminal__highlight"></span>
-                <span id="about-suffix"></span>
-              </span><span class="cursor">_</span>
+                <span id="about-suffix"></span> </span
+              ><span class="cursor">_</span>
             </div>
           </div>
         </div>
@@ -72,12 +72,6 @@
           </div>
         </div>
       </section>
-
-      <section id="projects" class="projects">
-        <h2 class="projects__heading">> FETCHING_PROJECTS...</h2>
-        <div id="projects-grid" class="projects__grid"></div>
-      </section>
-    </section>
 
     <!-- MODAL -->
 
@@ -130,6 +124,24 @@
         </div>
       </div>
     </div>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="projects">
+      <h2 class="projects__heading">> COMPILING_PROJECTS...</h2>
+
+      <!-- Interaction Control Deck -->
+      <div id="projects-controls" class="projects__controls">
+        <button class="projects__btn" data-tag="all">[ ALL_FILES ]</button>
+        <button class="projects__btn" data-tag="JavaScript">
+          [ JAVASCRIPT ]
+        </button>
+        <button class="projects__btn" data-tag="CSS">[ UTILITIES ]</button>
+      </div>
+
+      <h2 class="projects__heading">> FETCHING_PROJECTS...</h2>
+      <div id="projects-grid" class="projects__grid"></div>
+    </section>
   </body>
 
   <!-- FOOTER -->
@@ -144,14 +156,22 @@
       </div>
 
       <div class="footer__links">
-        <a href="https://github.com/KLewers327" target="_blank" class="footer__link"
+        <a
+          href="https://github.com/KLewers327"
+          target="_blank"
+          class="footer__link"
           >[ GITHUB ]</a
         >
-        <a href="https://www.linkedin.com/in/kaylyn-l-2261a995/" target="_blank" class="footer__link"
+        <a
+          href="https://www.linkedin.com/in/kaylyn-l-2261a995/"
+          target="_blank"
+          class="footer__link"
           >[ LINKEDIN ]</a
         >
       </div>
     </div>
-    <p class="footer__copyright">&copy; 2026 Kaylyn Lewers. ALL RIGHTS RESERVED.</p>
+    <p class="footer__copyright">
+      &copy; 2026 Kaylyn Lewers. ALL RIGHTS RESERVED.
+    </p>
   </footer>
 </html>

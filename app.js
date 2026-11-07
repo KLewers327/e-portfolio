@@ -183,22 +183,37 @@ const projects = [
 ];
 
 
-const displayProjects = () => {
+const renderGrid = (projectData) => {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
 
-  projects.forEach(proj => {
-    grid.innerHTML += `
-      <div class="projects__card">
-        <h3 class="projects__card-title">${proj.title}</h3>
-        <p class="projects__card-desc">${proj.desc}</p>
-        <div class="projects__tags">
-          ${proj.tags.map(t => `<span class="projects__tag">${t}</span>`).join('')}
-        </div>
+  grid.innerHTML = projectData.map(proj => `
+    <div class="projects__card">
+      <h3 class="projects__card-title">${proj.title}</h3>
+      <p class="projects__card-desc">${proj.desc}</p>
+      <div class="projects__tags">
+        ${proj.tags.map(t => `<span class="projects__tag">${t}</span>`).join('')}
       </div>
-    `;
-  });
+    </div>
+  `).join('');
 };
+
+const filterProjects = (tag) => {
+  const filtered = tag === 'all' ? projects : projects.filter(p => p.tags.includes(tag));
+  renderGrid(filtered);
+};
+
+const setupFilterListeners = () => {
+  const controls = document.getElementById("projects-controls");
+  if (!controls) return;
+
+  controls.onclick = (e) => {
+    if (e.target.classList.contains("projects__btn")) {
+      filterProjects(e.target.dataset.tag);
+    }
+  };
+};
+
 
 // SYSTEM CLOCK UPDATE
 
@@ -215,7 +230,8 @@ const updateClockNode = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   typeConnection();
-  displayProjects();
+  renderGrid(projects); // Performs the initial complete grid render
+  setupFilterListeners(); // Mounts the filter control listeners
   setupNavListeners();
   setupFormListener();
   
