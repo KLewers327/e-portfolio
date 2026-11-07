@@ -122,12 +122,48 @@ const setupNavListeners = () => {
   if (contactBtn) contactBtn.onclick = (e) => { e.preventDefault(); toggleModal('contact'); };
   if (closeBtn) closeBtn.onclick = () => toggleModal();
   
-  // Close window automatically if clicking outside the main tactical content block
   window.onclick = (e) => { if (e.target.id === "info-modal") toggleModal(); };
 };
+
+const resetFormNode = () => {
+  const form = document.getElementById("modal-form");
+  if (!form) return;
+
+  form.reset();
+  setTimeout(() => toggleModal(), 2000);
+};
+
+const setupFormListener = () => {
+  const form = document.getElementById("modal-form");
+  const content = document.getElementById("modal-content");
+  if (!form || !content) return;
+
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+
+    content.textContent = "> TRANSMITTING PAYLOAD DATA PACKET...";
+    content.className = "modal__text modal__text--loading";
+    form.classList.add("modal__form--hidden");
+
+    await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    content.textContent = "[ SUCCESS: TRANSMISSION_COMPLETE_ ]";
+    content.className = "modal__text modal__text--success";
+
+    resetFormNode(); 
+  };
+};
+
+
 
 window.onload = () => {
   typeConnection();
   displayProjects();
   setupNavListeners();
+  setupFormListener(); 
 };
+
