@@ -1,32 +1,45 @@
 const connectionText = "> Establishing connection...";
-const welcomeText = " Welcome, I'm Kaylyn.";
-const aboutText = "I'm a Frontend Software Engineer with a passion for creating visually stunning and user-friendly web applications.";
-
-const terminalElement = document.getElementById("terminal-text");
+const welcomeIntroText = " Welcome, I'm ";
+const welcomeNameText = "Kaylyn.";
+const aboutIntroText = "I'm a ";
+const aboutRoleText = "Frontend Software Engineer";
+const aboutSuffixText = " with a passion for creating visually stunning and user-friendly web applications.";
 
 let i = 0;
 
-const typeWelcome = () => {
-  if (i < welcomeText.length) {
-    terminalElement.textContent += welcomeText[i++];
-    setTimeout(typeWelcome, 50);
-  } else {
-    terminalElement.textContent += "\n";
-    i = 0;
-    typeAbout();
+const typeSegment = (element, text, onComplete, index = 0) => {
+  if (index < text.length) {
+    element.textContent += text[index];
+    setTimeout(() => typeSegment(element, text, onComplete, index + 1), 50);
+  } else if (onComplete) {
+    onComplete();
   }
 };
 
-const typeAbout = () => {
-  if (i < aboutText.length) {
-    terminalElement.textContent += aboutText[i++];
-    setTimeout(typeAbout, 50);
-  }
+const typeWelcome = () => {
+  const welcomeIntro = document.getElementById("welcome-intro");
+  const welcomeName = document.getElementById("welcome-name");
+  const aboutIntro = document.getElementById("about-intro");
+  const aboutRole = document.getElementById("about-role");
+  const aboutSuffix = document.getElementById("about-suffix");
+
+  typeSegment(welcomeIntro, welcomeIntroText, () => {
+    typeSegment(welcomeName, welcomeNameText, () => {
+      aboutIntro.textContent = "\n";
+      typeSegment(aboutIntro, aboutIntroText, () => {
+        typeSegment(aboutRole, aboutRoleText, () => {
+          typeSegment(aboutSuffix, aboutSuffixText);
+        });
+      });
+    });
+  });
 };
 
 const deleteConnection = () => {
-  if (terminalElement.textContent.length > 1) {
-    terminalElement.textContent = terminalElement.textContent.slice(0, -1);
+  const connectionElement = document.getElementById("connection-text");
+
+  if (connectionElement.textContent.length > 1) {
+    connectionElement.textContent = connectionElement.textContent.slice(0, -1);
     setTimeout(deleteConnection, 30);
   } else {
     i = 0;
@@ -35,9 +48,11 @@ const deleteConnection = () => {
 };
 
 const typeConnection = () => {
+  const connectionElement = document.getElementById("connection-text");
+
   if (i < connectionText.length) {
-    terminalElement.textContent += connectionText[i++];
-    const isPause = terminalElement.textContent === ">";
+    connectionElement.textContent += connectionText[i++];
+    const isPause = connectionElement.textContent === ">";
     const isConnectionComplete = i === connectionText.length;
     setTimeout(
       isConnectionComplete ? deleteConnection : typeConnection,

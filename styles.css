@@ -273,6 +273,11 @@ nav {
   white-space: pre-line;
 }
 
+.terminal__highlight {
+  color: #00F0FF;
+  text-shadow: 0 0 10px #00F0FF;
+}
+
 
 .cursor {
   color: #00F0FF; /* Contrast cyan for the cursor */
@@ -339,9 +344,12 @@ nav {
 }
 
 .terminal-text {
-  display: inline-block;
-  white-space: pre-wrap; 
-  word-wrap: break-word; 
+  display: inline;
+  white-space: normal;
+}
+
+#about-intro {
+  white-space: pre-line;
 }
 
 .visual__frame {
@@ -607,7 +615,8 @@ nav {
 
   .terminal__container {
     font-size: 1rem;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .terminal__body {
