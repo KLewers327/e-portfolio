@@ -432,3 +432,62 @@ nav {
   border-radius: 4px;
   border: 1px solid rgba(0, 240, 255, 0.2);
 }
+
+/* FOOTER */
+
+.footer {
+  background-color: #0A0915;
+  border-top: 1px solid #3C096C; /* Muted Purple separation line */
+  padding: 40px 10% 20px;
+  font-family: monospace;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__system {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer__node {
+  color: #39FF14; /* Matrix Green status indicator */
+  text-shadow: 0 0 8px #39FF14;
+}
+
+.footer__clock {
+  color: #00F0FF; /* Cyber Cyan timeline reading */
+  text-shadow: 0 0 8px #00F0FF;
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__link {
+  color: #BD00FF; /* Neon Purple link brackets */
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #00F0FF; /* Shifts to Cyan highlight on hover */
+  text-shadow: 0 0 10px #00F0FF;
+  transform: translateY(-2px);
+}
+
+.footer__copyright {
+  color: #555566; /* Muted tech gray text */
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 0;
+}

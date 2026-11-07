@@ -60,8 +60,6 @@
         <h2 class="projects__heading">> FETCHING_PROJECTS...</h2>
         <div id="projects-grid" class="projects__grid"></div>
       </section>
-
-      <header></header>
     </section>
 
     <!-- MODAL -->
@@ -82,7 +80,11 @@
             method="POST"
             class="modal__form modal__form--hidden"
           >
-          <input type="hidden" name="access_key" value="11aef98e-e6c1-43db-b736-ff36b87d3c57">
+            <input
+              type="hidden"
+              name="access_key"
+              value="11aef98e-e6c1-43db-b736-ff36b87d3c57"
+            />
             <div class="modal__field">
               <label class="modal__label">> USER_EMAIL:</label>
               <input
@@ -112,4 +114,27 @@
       </div>
     </div>
   </body>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__system">
+        <span class="footer__node">> NODE: ACTIVE</span>
+        <span id="system-clock" class="footer__clock"
+          >> SYS_TIME: 00:00:00 UTC</span
+        >
+      </div>
+
+      <div class="footer__links">
+        <a href="https://github.com" target="_blank" class="footer__link"
+          >[ GITHUB ]</a
+        >
+        <a href="https://linkedin.com" target="_blank" class="footer__link"
+          >[ LINKEDIN ]</a
+        >
+      </div>
+    </div>
+    <p class="footer__copyright">&copy; 2026 KLYN_OS. ALL RIGHTS RESERVED.</p>
+  </footer>
 </html>

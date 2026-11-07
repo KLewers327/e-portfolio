@@ -159,11 +159,25 @@ const setupFormListener = () => {
 };
 
 
+const updateClockNode = () => {
+  const clock = document.getElementById("system-clock");
+  if (!clock) return;
+
+  const now = new Date();
+  // Formats time into a string (HH:MM:SS)
+  const timeStr = now.toTimeString().split(' ')[0];
+  clock.textContent = `> SYS_TIME: ${timeStr}`;
+};
+
 
 window.onload = () => {
   typeConnection();
   displayProjects();
   setupNavListeners();
-  setupFormListener(); 
+  setupFormListener();
+  
+  // Start the time loop cycle instantly and update every 1000ms (1 second)
+  updateClockNode();
+  setInterval(updateClockNode, 1000);
 };
 
