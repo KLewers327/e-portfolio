@@ -96,16 +96,22 @@ const modalData = {
 
 const toggleModal = (view) => {
   const modal = document.getElementById("info-modal");
-  if (!modal) return;
+  const form = document.getElementById("modal-form");
+  if (!modal || !form) return;
 
   if (view) {
     document.getElementById("modal-title").textContent = modalData[view].title;
     document.getElementById("modal-content").textContent = modalData[view].text;
+    
+    // Modern Ternary Shorthand to toggle the visibility modifier on the form
+    view === 'contact' ? form.classList.remove("modal__form--hidden") : form.classList.add("modal__form--hidden");
+    
     modal.classList.add("modal--visible");
   } else {
     modal.classList.remove("modal--visible");
   }
 };
+
 
 const setupNavListeners = () => {
   // Update these selectors if your nav items use unique classes

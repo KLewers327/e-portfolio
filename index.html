@@ -74,6 +74,40 @@
         </div>
         <div class="modal__body">
           <p id="modal-content" class="modal__text"></p>
+
+          <!-- Form Element (Linked securely to a free form handler) -->
+          <form
+            id="modal-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="modal__form modal__form--hidden"
+          >
+          <input type="hidden" name="access_key" value="11aef98e-e6c1-43db-b736-ff36b87d3c57">
+            <div class="modal__field">
+              <label class="modal__label">> USER_EMAIL:</label>
+              <input
+                type="email"
+                name="email"
+                required
+                class="modal__input"
+                placeholder="name@domain.com"
+              />
+            </div>
+
+            <div class="modal__field">
+              <label class="modal__label">> DATA_PAYLOAD:</label>
+              <textarea
+                name="message"
+                required
+                class="modal__input modal__input--textarea"
+                placeholder="Type your message node here..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="modal__submit-btn">
+              [ TRANSMIT_COMMUNICATION ]
+            </button>
+          </form>
         </div>
       </div>
     </div>
