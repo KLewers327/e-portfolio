@@ -117,10 +117,20 @@ const setupNavListeners = () => {
   const aboutBtn = document.querySelector('a[href="#about"]');
   const contactBtn = document.querySelector('a[href="#contact"]');
   const closeBtn = document.getElementById("modal-close");
+  const hero = document.querySelector(".hero");
 
   if (aboutBtn) aboutBtn.onclick = (e) => { e.preventDefault(); toggleModal('about'); };
   if (contactBtn) contactBtn.onclick = (e) => { e.preventDefault(); toggleModal('contact'); };
   if (closeBtn) closeBtn.onclick = () => toggleModal();
+  if (hero) {
+    hero.addEventListener("click", () => toggleModal("contact"));
+    hero.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleModal("contact");
+      }
+    });
+  }
   
   window.onclick = (e) => { if (e.target.id === "info-modal") toggleModal(); };
 };
@@ -170,7 +180,7 @@ const updateClockNode = () => {
 };
 
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
   typeConnection();
   displayProjects();
   setupNavListeners();
@@ -179,5 +189,4 @@ window.onload = () => {
   // Start the time loop cycle instantly and update every 1000ms (1 second)
   updateClockNode();
   setInterval(updateClockNode, 1000);
-};
-
+});
