@@ -132,20 +132,33 @@ const setupNavListeners = () => {
   const aboutBtn = document.querySelector('a[href="#about"]');
   const contactBtn = document.querySelector('a[href="#contact"]');
   const closeBtn = document.getElementById("modal-close");
+  const contactTriggers = document.querySelectorAll(
+    ".terminal__window, .avatar__placeholder"
+  );
   const hero = document.querySelector(".hero");
 
   if (aboutBtn) aboutBtn.onclick = (e) => { e.preventDefault(); toggleModal('about'); };
   if (contactBtn) contactBtn.onclick = (e) => { e.preventDefault(); toggleModal('contact'); };
   if (closeBtn) closeBtn.onclick = () => toggleModal();
   if (hero) {
-    hero.addEventListener("click", () => toggleModal("contact"));
-    hero.addEventListener("keydown", (e) => {
+    hero.addEventListener("click", (e) => {
+      if (
+        e.target instanceof Element &&
+        e.target.closest(".terminal__window, .avatar__placeholder")
+      ) {
+        toggleModal("contact");
+      }
+    });
+  }
+
+  contactTriggers.forEach((trigger) => {
+    trigger.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         toggleModal("contact");
       }
     });
-  }
+  });
   
   window.onclick = (e) => { if (e.target.id === "info-modal") toggleModal(); };
 };

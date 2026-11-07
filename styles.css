@@ -300,7 +300,6 @@ nav {
   margin: 0 auto;
   padding: 0 40px;
   box-sizing: border-box;
-  cursor: pointer;
 }
 
 .terminal__window {
@@ -311,6 +310,7 @@ nav {
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(189, 0, 255, 0.15); /* Purple ambient glow */
   overflow: hidden;
+  cursor: pointer;
 }
 
 .terminal__header {
@@ -377,6 +377,7 @@ nav {
   /* Subtle technological scanline pattern */
   background-image: linear-gradient(rgba(189, 0, 255, 0.05) 50%, transparent 50%);
   background-size: 100% 4px;
+  cursor: pointer;
 }
 
 /* PROJECTS */
