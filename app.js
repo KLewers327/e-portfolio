@@ -86,7 +86,7 @@ const displayProjects = () => {
 const modalData = {
   about: {
     title: "> ACCESSING_BIOMETRICS...",
-    text: "Hello, I am Kaylyn. I am a passionate Frontend Software Engineer dedicated to architecting highly visible, accessible, and clean digital experiences. Skilled in HTML, CSS, and modern shorthand JavaScript architectures."
+    text: "Hello, I am Kaylyn. I am a passionate Frontend Software Engineer dedicated to architecting highly visible, accessible, and clean digital experiences. Skilled in HTML, CSS, and modern shorthand JavaScript architectures.\n\n> Launch project? Transmit payload below.",
   },
   contact: {
     title: "> ESTABLISHING_COMMS...",
@@ -103,8 +103,7 @@ const toggleModal = (view) => {
     document.getElementById("modal-title").textContent = modalData[view].title;
     document.getElementById("modal-content").textContent = modalData[view].text;
     
-    // Modern Ternary Shorthand to toggle the visibility modifier on the form
-    view === 'contact' ? form.classList.remove("modal__form--hidden") : form.classList.add("modal__form--hidden");
+    form.classList.remove("modal__form--hidden");
     
     modal.classList.add("modal--visible");
   } else {
@@ -132,4 +131,3 @@ window.onload = () => {
   displayProjects();
   setupNavListeners();
 };
-
