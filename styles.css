@@ -617,6 +617,7 @@ nav {
 
   .nav__toggle {
     display: flex; /* Reveal hamburger icon button */
+    margin-left: auto;
     z-index: 10000;
   }
 
@@ -646,7 +647,7 @@ nav {
     box-shadow: -10px 0 30px rgba(189, 0, 255, 0.25);
   }
 
-  /* Optional: Morph the lines into an 'X' close symbol when active */
+  /* Morph the lines into an 'X' close symbol when active */
   .nav__toggle--active .nav__toggle-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
     background-color: #FF007F; /* Changes to Hot Pink when open */
@@ -678,6 +679,11 @@ nav {
 
   .projects {
     padding: 48px 0;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .footer {
@@ -747,11 +753,6 @@ nav {
   .projects__heading {
     font-size: 1.1rem;
     overflow-wrap: anywhere;
-  }
-
-  .projects__grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
   }
 
   .footer__container {
