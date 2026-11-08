@@ -84,6 +84,8 @@ const setupNavListeners = () => {
   const aboutBtn = document.querySelector('a[href="#about"]');
   const contactBtn = document.querySelector('a[href="#contact"]');
   const closeBtn = document.getElementById("modal-close");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
   const contactTriggers = document.querySelectorAll(
     ".terminal__window, .avatar__placeholder"
   );
@@ -101,6 +103,21 @@ const setupNavListeners = () => {
         toggleModal("contact");
       }
     });
+  }
+
+  if (menuToggle && navLinks) {
+    menuToggle.onclick = () => {
+      menuToggle.classList.toggle("nav__toggle--active");
+      navLinks.classList.toggle("nav__links--open");
+    };
+
+    // Close the mobile drop-down automatically if a user clicks an actual link anchor
+    navLinks.onclick = (e) => {
+      if (e.target.classList.contains("nav__link")) {
+        menuToggle.classList.remove("nav__toggle--active");
+        navLinks.classList.remove("nav__links--open");
+      }
+    };
   }
 
   contactTriggers.forEach((trigger) => {

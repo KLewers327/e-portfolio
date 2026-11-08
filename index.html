@@ -14,24 +14,21 @@
   <body>
     <canvas id="cyber-matrix"></canvas>
     <section id="landing">
-      <nav>
-        <div class="nav__container">
-          <div class="row nav__row">
-            <div class="nav__links">
-              <ul>
-                <li>
-                  <a href="#home" class="nav__link">[ HOME ]</a>
-                </li>
-                <li><a href="#about" class="nav__link">[ ABOUT ]</a></li>
-                <li><a href="#projects" class="nav__link">[ PROJECTS ]</a></li>
-                <li>
-                  <a href="#contact" class="nav__link">[ CONTACT ]</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <nav class="nav">
+        
+        <button id="menu-toggle" class="nav__toggle" aria-label="Toggle Navigation">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+
+        <ul id="nav-links" class="nav__links">
+          <li class="nav__item"><a href="#about" class="nav__link">[ ABOUT ]</a></li>
+          <li class="nav__item"><a href="#projects" class="nav__link">[ PROJECTS ]</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">[ CONTACT ]</a></li>
+        </ul>
       </nav>
+
       <section class="hero">
         <div
           class="terminal__window"
