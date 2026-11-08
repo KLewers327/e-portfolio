@@ -53,47 +53,20 @@ nav {
 }
 
 .nav__link {
+  display: inline-block;
   margin: 0 24px;
-  padding-top: 4px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.35px;
+  font-weight: bold;
   text-decoration: none;
-  position: relative;
-  border-bottom: 2px solid transparent;
-  transition: 300ms;
+  transition: all 0.3s ease;
+  color: #BD00FF;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
   color: #00F0FF;
-  text-shadow: 0 0 10px #00F0FF, 0 0 20px #4bc5ce;
-}
-
-.nav__link--active {
-  color: #39FF14; /* High-voltage Electric Matrix Green */
-  text-shadow: 0 0 12px #39FF14, 0 0 20px rgba(57, 255, 20, 0.4);
-}
-
-.nav__link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  height: 2px;
-  width: 100%;
-  background: #00F0FF;
-  box-shadow: 0 0 8px #00F0FF, 0 0 16px #4bc5ce;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 300ms ease, opacity 300ms ease;
-  opacity: 0;
-}
-
-.nav__link--active::after {
-  background: #39FF14; /* High-voltage Electric Matrix Green */
-  box-shadow: 0 0 12px #39FF14, 0 0 20px rgba(57, 255, 20, 0.4);
-}
-
-.nav__link:is(:hover, :focus-visible)::after {
-  transform: scaleX(1);
-  opacity: 1;
+  text-shadow: 0 0 10px #00F0FF;
+  transform: translateY(-2px);
 }
 
 /* MODAL */
