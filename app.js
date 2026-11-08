@@ -1,3 +1,46 @@
+// BACKGROUND MATRIX EFFECT
+
+const initMatrixRain = () => {
+  const c = document.getElementById("cyber-matrix");
+  const ctx = c?.getContext("2d");
+  if (!c || !ctx) return;
+
+  // Stretch canvas buffer pixels to match native viewport size
+  const resize = () => {
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+  };
+  window.onresize = resize;
+  resize();
+
+  const chars = "01010101ABCDEFGHIJKLMNOPQRSTUVWXYZｦｱｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ";
+  const fontSize = 16;
+  const columns = Math.floor(c.width / fontSize);
+  const drops = Array(columns).fill(1); // Set starting Y coordinate array for every column
+
+    const draw = () => {
+    // Darker wash ensures the canvas stays dark and highly readable
+    ctx.fillStyle = "rgba(10, 9, 21, 0.15)";
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    ctx.font = `${fontSize}px monospace`;
+
+    drops.forEach((y, i) => {
+      const txt = chars[Math.floor(Math.random() * chars.length)];
+      
+      // More subtle purple and dim selection so it's easier to read the text
+      ctx.fillStyle = Math.random() > 0.98 ? "#00F0FF" : Math.random() > 0.5 ? "#5A189A" : "#240046";
+      
+      ctx.fillText(txt, i * fontSize, y * fontSize);
+
+      drops[i] = (y * fontSize > c.height && Math.random() > 0.975) ? 0 : y + 1;
+    });
+  };
+
+
+  setInterval(draw, 33); // Ticks up the stream at roughly 30 frames per second
+};
+
 // MODAL DATA OBJECT
 
 const modalData = {
@@ -229,6 +272,7 @@ const updateClockNode = () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  initMatrixRain();
   typeConnection();
   renderGrid(projects); // Performs the initial complete grid render
   setupFilterListeners(); // Mounts the filter control listeners

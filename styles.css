@@ -28,6 +28,24 @@ li {
   margin: 0 auto;
 }
 
+.hero, .projects, .footer {
+  background: transparent !important;
+}
+
+/* BACKGROUND */
+
+#cyber-matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: #0A0915;
+  opacity: 0.5; 
+}
+
+
 /* NAV BAR */
 
 nav {
