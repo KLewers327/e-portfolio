@@ -5,7 +5,6 @@ const initMatrixRain = () => {
   const ctx = c?.getContext("2d");
   if (!c || !ctx) return;
 
-  // Stretch canvas buffer pixels to match native viewport size
   const resize = () => {
     c.width = window.innerWidth;
     c.height = window.innerHeight;
@@ -16,30 +15,39 @@ const initMatrixRain = () => {
   const chars = "01010101ABCDEFGHIJKLMNOPQRSTUVWXYZｦｱｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ";
   const fontSize = 16;
   const columns = Math.floor(c.width / fontSize);
-  const drops = Array(columns).fill(1); // Set starting Y coordinate array for every column
+  const drops = Array(columns).fill(1);
+  const mouse = { x: -1000, y: -1000 };
 
-    const draw = () => {
-    // Darker wash ensures the canvas stays dark and highly readable
+  window.onmousemove = (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  };
+
+  const draw = () => {
     ctx.fillStyle = "rgba(10, 9, 21, 0.15)";
     ctx.fillRect(0, 0, c.width, c.height);
-
     ctx.font = `${fontSize}px monospace`;
 
     drops.forEach((y, i) => {
       const txt = chars[Math.floor(Math.random() * chars.length)];
       
-      // More subtle purple and dim selection so it's easier to read the text
-      ctx.fillStyle = Math.random() > 0.98 ? "#00F0FF" : Math.random() > 0.5 ? "#5A189A" : "#240046";
-      
-      ctx.fillText(txt, i * fontSize, y * fontSize);
+      const columnX = i * fontSize;
+      const distanceX = Math.abs(columnX - mouse.x);
 
-      drops[i] = (y * fontSize > c.height && Math.random() > 0.975) ? 0 : y + 1;
+      const isNearMouse = distanceX < 80;
+      ctx.fillStyle = isNearMouse ? "#00F0FF" : (Math.random() > 0.5 ? "#5A189A" : "#240046");
+      
+      ctx.fillText(txt, columnX, y * fontSize);
+
+      let nextY = y + (isNearMouse ? 3 : 1);
+
+      drops[i] = (nextY * fontSize > c.height && Math.random() > 0.975) ? 0 : nextY;
     });
   };
 
-
-  setInterval(draw, 33); // Ticks up the stream at roughly 30 frames per second
+  setInterval(draw, 33);
 };
+
 
 // MODAL DATA OBJECT
 
@@ -272,12 +280,12 @@ const updateClockNode = () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  initMatrixRain();
-  typeConnection();
+  initMatrixRain(); // Performs background matrix rain effect
+  typeConnection(); // Starts the typing animation sequence
   renderGrid(projects); // Performs the initial complete grid render
   setupFilterListeners(); // Mounts the filter control listeners
-  setupNavListeners();
-  setupFormListener();
+  setupNavListeners(); // Mounts the modal navigation listeners
+  setupFormListener(); // Mounts the modal form submission listener
   
   // Start the time loop cycle instantly and update every 1000ms (1 second)
   updateClockNode();
