@@ -62,6 +62,22 @@ const modalData = {
   }
 };
 
+let modalScrollY = 0;
+
+const lockPageScroll = () => {
+  modalScrollY = window.scrollY;
+  document.documentElement.classList.add("modal-open");
+  document.body.classList.add("modal-open");
+  document.body.style.top = `-${modalScrollY}px`;
+};
+
+const unlockPageScroll = () => {
+  document.documentElement.classList.remove("modal-open");
+  document.body.classList.remove("modal-open");
+  document.body.style.top = "";
+  window.scrollTo(0, modalScrollY);
+};
+
 const toggleModal = (view) => {
   const modal = document.getElementById("info-modal");
   const form = document.getElementById("modal-form");
@@ -73,9 +89,11 @@ const toggleModal = (view) => {
     
     form.classList.remove("modal__form--hidden");
     
+    if (!modal.classList.contains("modal--visible")) lockPageScroll();
     modal.classList.add("modal--visible");
   } else {
     modal.classList.remove("modal--visible");
+    unlockPageScroll();
   }
 };
 
